@@ -14,7 +14,7 @@ public class BonusService {
         BigDecimal valor = funcionario.getSalario().multiply(VALOR_PADRAO_DE_BONIFICACAO);
 
         if (valorMaiorQueLimiteDeBonus(valor)) {
-            valor = BigDecimal.ZERO;
+            throw new IllegalArgumentException("Funcionário com salario maio que 10 mil reais, não pode receber bonus.");
         }
         return valor.setScale(2 , RoundingMode.HALF_UP);
     }

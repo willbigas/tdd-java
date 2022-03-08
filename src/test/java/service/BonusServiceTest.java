@@ -27,7 +27,7 @@ class BonusServiceTest {
     @Test
     void bonusDeveriaSerZeroParaFuncionarioComSalarioMuitoAlto() {
         funcionario.setSalario(new BigDecimal("25000"));
-        assertEquals(new BigDecimal("0.00"), service.calcularBonus(funcionario));
+        assertThrows(IllegalArgumentException.class , () -> service.calcularBonus(funcionario));
     }
 
     @Test
